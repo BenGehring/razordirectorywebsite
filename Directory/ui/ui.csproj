@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="Pages\Components\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\lib\bootstrap\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\data\data.csproj" />
+    <ProjectReference Include="..\domain\domain.csproj" />
+  </ItemGroup>
+
+</Project>
