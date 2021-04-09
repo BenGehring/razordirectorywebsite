@@ -12,7 +12,7 @@ namespace data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\\mssqllocaldb; Initial Catalog=ListingsDb;");
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\directorylocaldb; Initial Catalog=ListingsDb;Integrated Security=true;AttachDbFilename='C:\Users\Ben\source\repos\razordirectorywebsite\Directory\ui\Data\ListingsDb.mdf';");
         }
     }
 }
