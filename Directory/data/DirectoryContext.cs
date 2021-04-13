@@ -6,10 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace data
 {
-    public class DirectoryContext : DbContext
+    public sealed class DirectoryContext : DbContext
     {
         public DbSet<Business> Businesses { get; set; }
         public DbSet<BusinessType> BusinessTypes { get; set; }
+
+        public DirectoryContext() => ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
