@@ -21,7 +21,7 @@ namespace data
             modelBuilder.Entity<Business>(entity =>
             {
                 entity.HasKey(b => b.Id);
-            });
+        });
 
             modelBuilder.Entity<BusinessType>(entity =>
             {

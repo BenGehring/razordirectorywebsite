@@ -8,5 +8,6 @@ namespace domain
     {
         public int Id { get; set; }
         public string BusinessTypeName { get; set; }
+        public IEnumerable<Business> Businesses { get; set; }
     }
 }

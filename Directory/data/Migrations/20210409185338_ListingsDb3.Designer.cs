@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using data;
 
 namespace data.Migrations
 {
     [DbContext(typeof(DirectoryContext))]
-    partial class DirectoryContextModelSnapshot : ModelSnapshot
+    [Migration("20210409185338_ListingsDb3")]
+    partial class ListingsDb3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,7 +80,7 @@ namespace data.Migrations
             modelBuilder.Entity("domain.Business", b =>
                 {
                     b.HasOne("domain.BusinessType", "BusinessType")
-                        .WithMany("Businesses")
+                        .WithMany("BueBusinesses")
                         .HasForeignKey("BusinessTypeId");
 
                     b.Navigation("BusinessType");
@@ -86,7 +88,7 @@ namespace data.Migrations
 
             modelBuilder.Entity("domain.BusinessType", b =>
                 {
-                    b.Navigation("Businesses");
+                    b.Navigation("BueBusinesses");
                 });
 #pragma warning restore 612, 618
         }
