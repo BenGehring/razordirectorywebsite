@@ -11,11 +11,15 @@ namespace data
         public DbSet<Business> Businesses { get; set; }
         public DbSet<BusinessType> BusinessTypes { get; set; }
 
-        public DirectoryContext() => ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+        public DirectoryContext(DbContextOptions<DirectoryContext> options)
+            : base(options)
+        {
+
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\directorylocaldb; Initial Catalog=ListingsDb;Integrated Security=true;AttachDbFilename='C:\Users\Ben\source\repos\razordirectorywebsite\Directory\ui\Data\ListingsDb.mdf';");
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,7 +27,7 @@ namespace data
             modelBuilder.Entity<Business>(entity =>
             {
                 entity.HasKey(b => b.Id);
-        });
+            });
 
             modelBuilder.Entity<BusinessType>(entity =>
             {

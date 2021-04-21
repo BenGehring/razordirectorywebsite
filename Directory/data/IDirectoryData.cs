@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
+using domain;
 
 namespace data
 {
-    public interface IDirectoryData<out TEntity> where TEntity : class
+    public interface IDirectoryData
     {
-        public IEnumerable<TEntity> GetBusinesses();
+        public double GetBusinessPageCount(int pageSize);
 
-        public IEnumerable<TEntity> FindBusinesses(string searchTerm);
+        public IEnumerable<Business> GetBusinesses(int currentPage, int pageSize);
+
+        public IEnumerable<Business> FindBusinesses(string searchTerm);
     }
 }

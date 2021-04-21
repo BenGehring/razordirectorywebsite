@@ -1,6 +1,85 @@
 ﻿@page
+@using Microsoft.EntityFrameworkCore
 @model ui.Pages.IndexModel
 @{
     Layout = "Shared/_Layout";
 }
-<h3>Index</h3>
+<div class="container page">
+    <div class="row gx-5 gy-5">
+        <div class="col-lg-8">
+            <div class="input-group">
+                <form>
+                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                           aria-describedby="search-addon" value="@Model.SearchTerm.SearchTerm" />
+                    <button type="button" class="btn btn-outline-primary">search</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <p>
+                Search for any business in Los Vegas, NV.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2">
+            Business Name
+        </div>
+        <div class="col-lg-3">
+            Address
+        </div>
+        <div class="col-lg-1">
+            City
+        </div>
+        <div class="col-lg-1">
+            State
+        </div>
+        <div class="col-lg-1">
+            Zip Code
+        </div>
+        <div class="col-lg-1">
+            Phone Number
+        </div>
+        <div class="col-lg-1">
+            IsActive
+        </div>
+        <div class="col-lg-1">
+            Is Within City Limits
+        </div>
+        <div class="col-lg-1">
+            Business Type
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var b in Model.Businesses)
+        {
+            <div class="col-lg-2">
+                @b.BusinessName
+            </div>
+            <div class="col-lg-3">
+                @b.Address
+            </div>
+            <div class="col-lg-1">
+                @b.City
+            </div>
+            <div class="col-lg-1">
+                @b.State
+            </div>
+            <div class="col-lg-1">
+                @b.ZipCode
+            </div>
+            <div class="col-lg-1">
+                @b.PhoneNumber
+            </div>
+            <div class="col-lg-1">
+                @b.IsActive
+            </div>
+            <div class="col-lg-1">
+                @b.WithinCityLimits
+            </div>
+            <div class="col-lg-1">
+                @b.BusinessType
+            </div>
+        }
+    </div>
+</div>
